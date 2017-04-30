@@ -1,0 +1,8 @@
+dependencies{
+    // Base
+	miui_HMNote4XGlobal_V8.1.15.0.MCFMIDI_d8a7047f07_6.0(xiaomiM)
+	miui_HMNote4XGlobal_7.4.27_fbd181cb77_7.0(xiaomiN)
+
+    // Ramdisk
+    
+}
