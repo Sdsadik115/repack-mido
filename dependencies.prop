@@ -4,5 +4,7 @@ dependencies{
 	miui_HMNote4XGlobal_7.4.27_fbd181cb77_7.0(xiaomiN)
 
     // Ramdisk
-    
+    RR-N-v5.8.2-20170324-mido-Official
+	AospExtended-v4.1-mido-20170426-1604-OFFICIAL
+    lineage-14.1-20170430-UNOFFICIAL-mido
 }
