@@ -1,0 +1,34 @@
+#!/system/bin/sh
+mount -o remount,rw -t auto /
+mount -t rootfs -o remount,rw rootfs
+mount -o remount,rw -t auto /system
+mount -o remount,rw /data
+mount -o remount,rw /cache
+sys=$(find /dev/block/platform -name system)
+dat=$(find /dev/block/platform -name data)
+udat=$(find /dev/block/platform -name userdata)
+cac=$(find /dev/block/platform -name cache)
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noatime,noauto_da_alloc,barrier=0 $sys
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $dat
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $udat
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $cac
+busybox sysctl -w kernel.sched_features=15834233;
+busybox sysctl -w kernel.msgmni=2048;
+busybox sysctl -w kernel.msgmax=64000;
+busybox sysctl -w kernel.shmmax=268435500;
+busybox sysctl -w kernel.sem=500,512000,64,2048;
+busybox sysctl -w kernel.hung_task_timeout_secs=0;
+busybox sysctl -w kernel.sched_latency_ns=5000000; 
+busybox sysctl -w kernel.sched_compat_yield=1;
+busybox sysctl -w kernel.sched_shares_ratelimit=256000;
+busybox sysctl -w kernel.sched_child_runs_first=0;
+busybox sysctl -w kernel.threads-max=10000;
+if ( mount | grep -w ext4 ) then
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /cache /cache;
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /data /data;
+fi;
+mount -o remount,ro -t auto /
+mount -t rootfs -o remount,ro rootfs
+mount -o remount,ro -t auto /system
+mount -o remount,rw /data
+mount -o remount,rw /cache

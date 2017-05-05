@@ -3,30 +3,30 @@ assert(getprop("ro.product.device") == "mido" || getprop("ro.build.product") == 
 
 # Install Repack
 ui_print("--> Mounting partions");
-sleep(0.5);
+sleep(1);
 ifelse(is_mounted("/data"), unmount("/data"));
 run_program("/sbin/mount", "/data");
 ui_print("--> You should make a nand backup of your boot partion first");
-sleep(0.5);
+sleep(1);
 ui_print("--> I will pause the installation for 15 secs");
-sleep(0.5);
-ui_print("--> You can hold power vol up to reboot to recovery");
+sleep(1);
+ui_print("--> You can hold power vol up to reboot back to recovery");
 
 sleep(15);
 
 ui_print("--> If you did, good job");
-sleep(0.5);
+sleep(1);
 ui_print("--> This zip will NOT break safteynet");
-sleep(0.5);
-ui_print("--> Installing Repack Build1...");
+sleep(1);
+ui_print("--> Installing Kernel...");
 sleep(2);
 package_extract_file("image-new.img", "/dev/block/bootdevice/by-name/boot");
 ui_print("--> Reflash SuperSU or magisk if you want it");
-sleep(0.5);
+sleep(1);
 ui_print("--> Bugs or failed boots may occur");
-sleep(0.5);
+sleep(1);
 ui_print("--> Please report to the XDA thread if such happens");
-sleep(0.5);
+sleep(1);
 ui_print("--> Unmounting partions");
 unmount("/data");
 ui_print("Installation complete!");
