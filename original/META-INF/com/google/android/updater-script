@@ -1,0 +1,24 @@
+# Double-check
+assert(getprop("ro.product.device") == "mido" || getprop("ro.build.product") == "mido" || abort("This repack is for xiaomi n4x(mido); this device is " + getprop("ro.product.device") + "."););
+
+# Install Repack
+ui_print("--> Mounting /data partion");
+sleep(2);
+ifelse(is_mounted("/data"), unmount("/data"));
+run_program("/sbin/mount", "/data");
+
+ui_print("--> Installing Build #6...");
+sleep(3);
+package_extract_file("image-new.img", "/dev/block/bootdevice/by-name/boot");
+
+ui_print("--> Wiping dalvik-cache && cache...");
+delete_recursive("/data/dalvik-cache");
+delete_recursive("/cache");
+sleep(3);
+
+ui_print("--> Reflash SuperSU or magisk if you had it before");
+sleep(1);
+ui_print("--> Unmounting partions");
+unmount("/data");
+
+ui_print("Installation complete!");
