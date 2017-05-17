@@ -19,7 +19,7 @@ persist.sys.timezone=Asia/Shanghai
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Thu Feb 16 19:27:32 WIB 2017
-ro.bootimage.build.date.utc=1487248052
-ro.bootimage.build.fingerprint=xiaomi/mido/mido:6.0.1/MMB29M/V8.1.15.0.MCFMIDI:user/test-keys
+ro.bootimage.build.date=Fri Apr 28 20:25:18 WIB 2017
+ro.bootimage.build.date.utc=1493385918
+ro.bootimage.build.fingerprint=xiaomi/mido/mido:6.0.1/MMB29M/V8.2.5.0.MCFMIDL:user/test-keys
 persist.sys.usb.config=none

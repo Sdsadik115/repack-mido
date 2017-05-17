@@ -130,11 +130,6 @@ wifiscanner                               u:object_r:wifiscanner_service:s0
 wifi                                      u:object_r:wifi_service:s0
 window                                    u:object_r:window_service:s0
 *                                         u:object_r:default_android_service:s0
-#fingerprint                               u:object_r:fingerprint_service:s0
-#android.hardware.fingerprint.IFingerprintDaemon u:object_r:fingerprintd_service:s0
-# add for goodix chip
-goodix.fp                                 u:object_r:gx_fpd_service:s0
-#fm_fingerprint_service                    u:object_r:fm_fingerprint_service:s
 #line 1 "device/qcom/sepolicy/common/service_contexts"
 android.apps.IQfpService                       u:object_r:iqfp_service:s0
 AtCmdFwd                                       u:object_r:atfwd_service:s0
@@ -229,6 +224,10 @@ DisplayFeatureControl      u:object_r:displayfeature_service:s0
 com.qualcomm.qti.auth.securesampleauthdaemon   u:object_r:fidotest_service:s0
 com.qualcomm.qti.qseeproxysample               u:object_r:qseeproxysample_service:s0
 
+#line 1 "device/xiaomi/mido/sepolicy/common/service_contexts"
+# add for goodix chip
+goodix.fp                                 u:object_r:gx_fpd_service:s0
+#fm_fingerprint_service                    u:object_r:fm_fingerprint_service:s0
 #line 1 "miui/device/common/sepolicy/common/service_contexts"
 miui.shell        u:object_r:shelld_service:s0
 miui.whetstone.mcd u:object_r:mcd_service:s0
@@ -239,6 +238,7 @@ miui.whetstone    u:object_r:system_app_service:s0
 mdb.remote_display u:object_r:mdb_display_service:s0
 miui.fdpp u:object_r:fdpp_service:s0
 miui.sedc u:object_r:sedc_service:s0
+miui.mqsas.MQSService u:object_r:mqs_service:s0
 miui.mqsas.IMQSNative u:object_r:mqsasd_service:s0
 #line 1 "miui/device/common/sepolicy/v23/service_contexts"
 security          u:object_r:security_service:s0
@@ -246,6 +246,7 @@ MiuiBackup        u:object_r:miui_backup_service:s0
 MiuiInit          u:object_r:miui_init_service:s0
 whetstone.activity u:object_r:whetstone_service:s0
 miui.security.keystore u:object_r:miui_security_keystore_service:s0
+perfshielder       u:object_r:perfshielder:s0
 #line 1 "vendor/graphiteplus/proprietary/sepolicy//service_contexts"
 securespaces                              u:object_r:user_service:s0
 spaceencryption                           u:object_r:user_service:s0

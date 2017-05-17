@@ -9,10 +9,33 @@ on init
     mkdir /sys/fs/cgroup/freezer 0750 root system
     mount cgroup none /sys/fs/cgroup/freezer freezer
 
+on late-init
+    # set vr related cpuset
+    mkdir /dev/cpuset/vr
+    write /dev/cpuset/vr/mems 0
+
+    # change permissions for vr cpusets as we'll touch at runtime
+    chown system system /dev/cpuset/foreground/boost/cpus
+    chown system system /dev/cpuset/foreground/cpus
+    chown system system /dev/cpuset/vr
+    chown system system /dev/cpuset/vr/cpu_exclusive
+    chown system system /dev/cpuset/vr/cpus
+    chown system system /dev/cpuset/vr/tasks
+    chown system system /dev/cpuset/top-app/cpus
+    chown system system /dev/cpuset/top-app/boost
+    chown system system /dev/cpuset/top-app/boost/tasks
+    chown system system /dev/cpuset/top-app/boost/cpus
+    chmod 0664 /dev/cpuset/vr/cpu_exclusive
+    chmod 0664 /dev/cpuset/vr/cpus
+    chmod 0664 /dev/cpuset/vr/tasks
+    chmod 0664 /dev/cpuset/top-app/boost/tasks
+
 on post-fs-data
     mkdir /data/system 0775 system system
     mkdir /data/system/mcd 0755 system system
+    mkdir /data/miui/whetstone 0770 system system
     restorecon_recursive /data/system/mcd
+    restorecon_recursive /data/miui/whetstone
 
 # secureboot
 service setlockstate /sbin/setlockstate
@@ -33,7 +56,6 @@ service shelld /system/xbin/shelld
 #service for su
 service su_daemon /system/xbin/su --daemon
     class main
-    oneshot
 
 # service for mcd init
 service mcd_init /system/bin/mcd init 4
@@ -116,6 +138,9 @@ service mqsasd /system/xbin/mqsasd daemon
     class main
     user root
     group system
+
+on post-fs-data
+    mkdir /data/mqsas 0775 system system
 
 #adb input
 on property:persist.security.adbinput=*

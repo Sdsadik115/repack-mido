@@ -318,26 +318,6 @@
 /mnt/runtime(/.*)?          u:object_r:storage_file:s0
 /storage(/.*)?              u:object_r:storage_file:s0
 
-# For Goodix fingerprint
-/dev/gf66xx-spi     u:object_r:gx_fpd_device:s0
-/dev/ttyACM[0-9]*   u:object_r:gx_fpd_device:s0
-/dev/goodix_fp*     u:object_r:gx_fpd_device:s0
-## For Goodix fingerprint
-/system/bin/gx_fpd       u:object_r:gx_fpd_exec:s0
-### For Goodix fingerprint
-#/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:fingerprintd_data_file:s0
-/data/system/fingerprint(/.*)?    u:object_r:gx_fpd_data_file:s0
-/persist/data/gxfp(/.*)?		  u:object_r:gx_fpd_data_file:s0
-#### Goodix Fingerprint libs
-/system/lib/libfpservice.so       u:object_r:gx_fpd_lib_file:s0
-/system/lib/libfpalgorithm.so     u:object_r:gx_fpd_lib_file:s0
-/system/lib/libfphal.so           u:object_r:gx_fpd_lib_file:s0
-/system/lib/libfpnav.so           u:object_r:gx_fpd_lib_file:s0
-/system/lib64/libfpservice.so     u:object_r:gx_fpd_lib_file:s0
-/system/lib64/libfpalgorithm.so   u:object_r:gx_fpd_lib_file:s0
-/system/lib64/libfphal.so         u:object_r:gx_fpd_lib_file:s0
-/system/lib64/libfpnav.so         u:object_r:gx_fpd_lib_file:s0
-
 ##############################
 # others config for CTS issue
 /system/bin/tune2fs	u:object_r:tune2fs_exec:s0
@@ -771,12 +751,6 @@
 /sys/bus/i2c/devices/3-0038/set_cover_mode                          u:object_r:sysfs_cabc_ctl:s0
 /sys/class/touch/sys/mode_cover                                     u:object_r:sysfs_cabc_ctl:s0
 /proc/gtp_glove_fun                                                 u:object_r:sysfs_cabc_ctl:s0
-
-#added by hq_sunyijun 2016-06-21 for fpc fingerprint
-/data/fpc(/.*)?                        u:object_r:fpc_data_file:s0
-/dev/socket/fpce(/.*)?                 u:object_r:fpce_socket:s0
-/sys/devices/soc/soc:fpc_fpc1020/irq   u:object_r:sysfs_fpc_irq:s0
-#ended by hq_sunyijun 2016-06-21 for fpc fingerprint
 #line 1 "device/qcom/sepolicy/test/file_contexts"
 /system/bin/kernel-tests/smd.* u:object_r:smd_test_exec:s0
 /system/bin/qmi-framework-tests/qmi_ping.*      u:object_r:qmi_ping_exec:s0
@@ -844,6 +818,33 @@
 
 #Context for mediaserver
 /data/display-tests/media(/.*)?                 u:object_r:display_test_media_file:s0
+#line 1 "device/xiaomi/mido/sepolicy/common/file_contexts"
+# For Goodix fingerprint
+/dev/gf66xx-spi     u:object_r:gx_fpd_device:s0
+/dev/ttyACM[0-9]*   u:object_r:gx_fpd_device:s0
+/dev/goodix_fp*     u:object_r:gx_fpd_device:s0
+## For Goodix fingerprint
+/system/bin/gx_fpd       u:object_r:gx_fpd_exec:s0
+
+/data/system/fingerprint(/.*)?    u:object_r:gx_fpd_data_file:s0
+/persist/data/gxfp(/.*)?		  u:object_r:gx_fpd_data_file:s0
+#### Goodix Fingerprint libs
+/system/lib/libfpservice.so       u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfpalgorithm.so     u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfphal.so           u:object_r:gx_fpd_lib_file:s0
+/system/lib/libfpnav.so           u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpservice.so     u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpalgorithm.so   u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfphal.so         u:object_r:gx_fpd_lib_file:s0
+/system/lib64/libfpnav.so         u:object_r:gx_fpd_lib_file:s0
+
+#added by hq_sunyijun 2016-06-21 for fpc fingerprint
+/data/fpc(/.*)?                        u:object_r:fpc_data_file:s0
+/dev/socket/fpce(/.*)?                 u:object_r:fpce_socket:s0
+/sys/devices/soc/soc:fpc_fpc1020/irq   u:object_r:sysfs_fpc_irq:s0
+#ended by hq_sunyijun 2016-06-21 for fpc fingerprint
+
+
 #line 1 "miui/device/common/sepolicy/common/file_contexts"
 ########################################
 # System files
@@ -865,6 +866,7 @@
 /dev/xiaomi/memsw_state  u:object_r:mcd_device:s0
 /dev/block/zram.*        u:object_r:zram_device:s0
 /data/system/mcd(/.*)?   u:object_r:mcd_data_file:s0
+/data/miui/whetstone(/.*)?   u:object_r:whetstone_data_file:s0
 
 ########################################
 # Core dump for miui native debug
@@ -886,6 +888,11 @@
 # Cust files
 #
 /cust(/.*)?         u:object_r:system_file:s0
+
+########################################
+# mqsas data file
+#
+/data/mqsas(/.*)?      u:object_r:mqsas_data_file:s0
 #line 1 "miui/device/common/sepolicy/v23/file_contexts"
 /system/xbin/mdb_svc    u:object_r:mdb_svc_exec:s0
 
