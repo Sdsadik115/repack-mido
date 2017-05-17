@@ -75,7 +75,6 @@ on early-boot
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
 
-    # Dalvik (Balanced)
     setprop dalvik.vm.image-dex2oat-filter balanced
     setprop dalvik.vm.dex2oat-filter balanced
     setprop dalvik.vm.check-dex-sum false

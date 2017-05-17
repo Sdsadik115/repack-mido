@@ -74,13 +74,15 @@ on early-boot
     chmod 0664 /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
-
-    # Dalvik (Balanced)
-    setprop pm.dexopt.bg-dexopt balanced
     setprop dalvik.vm.image-dex2oat-filter balanced
-    setprop dalvik.vm.dex2oat-thread_count 4 # Specify compile thread count
+    setprop dalvik.vm.dex2oat-filter balanced
     setprop dalvik.vm.check-dex-sum false
     setprop dalvik.vm.checkjni false
+    setprop pm.dexopt.bg-dexopt
+    setprop dalvik.vm.dexopt-flags=v=a,o=v
+    setprop dalvik.vm.heaptargetutilization 0.9
+    setprop dalvik.vm.dex2oat-swap true
+    setprop dalvik.vm.dex2oat-thread_count 4 # Specify compile thread count
     setprop dalvik.vm.execution-mode int:jit # Use jit as compiler
     
     # Optimisation
@@ -215,6 +217,7 @@ on early-boot
     write /sys/block/zram0/queue/rotational 0
     write /sys/block/zram0/queue/read_ahead_kb 256 
     write /sys/block/zram0/queue/rq_affinity 1
+    
     
 on boot
     chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
