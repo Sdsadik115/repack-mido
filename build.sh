@@ -1,9 +1,9 @@
 #!/bin/sh
 # Packs everything then moves them to release folder
-# Output folder is /builds/r8
+# Output folder is /builds/r9
 
-rm -rf ~/Desktop/repack-mido/builds/r8
-mkdir ~/Desktop/repack-mido/builds/r8
+rm -rf ~/Desktop/repack-mido/builds/r9
+mkdir ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -14,7 +14,7 @@ cd ~/Desktop/repack-mido/res/acip
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img acip.img && mv acip.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img acip.img && mv acip.img ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -25,7 +25,7 @@ cd ~/Desktop/repack-mido/res/aex
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img aex.img && mv aex.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img aex.img && mv aex.img ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -36,7 +36,7 @@ cd ~/Desktop/repack-mido/res/asocp
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img aex.img && mv aex.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img aex.img && mv aex.img ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -47,7 +47,7 @@ cd ~/Desktop/repack-mido/res/crdroid
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img crdroid.img && mv crdroid.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img crdroid.img && mv crdroid.img ~/Desktop/repack-mido/builds/r9
 
 
 sleep 1
@@ -59,7 +59,7 @@ cd ~/Desktop/repack-mido/res/dnd
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img dnd.img && mv dnd.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img dnd.img && mv dnd.img ~/Desktop/repack-mido/builds/r9
 
 
 sleep 1
@@ -71,7 +71,7 @@ cd ~/Desktop/repack-mido/res/lineage
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img lineage.img && mv lineage.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img lineage.img && mv lineage.img ~/Desktop/repack-mido/builds/r9
 
 
 sleep 1
@@ -83,7 +83,7 @@ cd ~/Desktop/repack-mido/res/miui6
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img miui6.img && mv miui6.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img miui6.img && mv miui6.img ~/Desktop/repack-mido/builds/r9
 
 
 sleep 1
@@ -95,7 +95,7 @@ cd ~/Desktop/repack-mido/res/miui7
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img miui7.img && mv miui7.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img miui7.img && mv miui7.img ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -104,7 +104,7 @@ sleep 1
 cd ~/Desktop/repack-mido/res/rrn3
 ./repackimg.sh # Run repack sequence
 rm -f ramdisk-new.cpio.gz
-mv -v image-new.img rrn3.img && mv rrn3.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img rrn3.img && mv rrn3.img ~/Desktop/repack-mido/builds/r9
 
 sleep 1
 
@@ -115,7 +115,7 @@ cd ~/Desktop/repack-mido/res/xsop
 sleep 1
 rm -f ramdisk-new.cpio.gz
 sleep 1
-mv -v image-new.img xsop.img && mv xsop.img ~/Desktop/repack-mido/builds/r8
+mv -v image-new.img xsop.img && mv xsop.img ~/Desktop/repack-mido/builds/r9
 
 exit 0;
 
