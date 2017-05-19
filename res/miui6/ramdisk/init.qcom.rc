@@ -57,6 +57,7 @@ on early-boot
     write /sys/kernel/boot_slpi/boot 1
     exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
 
+   # Dalvik (Balanced)
     setprop dalvik.vm.image-dex2oat-filter balanced
     setprop dalvik.vm.dex2oat-filter balanced
     setprop dalvik.vm.check-dex-sum false
@@ -82,12 +83,6 @@ on early-boot
     setprop ro.camcorder.videoModes true
     setprop ro.media.enc.hprof.vid.fps 65
 
-    # GPU
-
-    # RAM
-
-    # LMK
-    
     # OOM 
     # Telephony
     # No ring delay
@@ -201,6 +196,13 @@ on early-boot
     write /sys/block/zram0/queue/read_ahead_kb 256 
     write /sys/block/zram0/queue/rq_affinity 1
     
+    # Fstrim
+    busybox fstrim /system
+    busybox fstrim /data
+    busybox fstrim /cache
+
+    #Governer
+
 on boot
     chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
     chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode
