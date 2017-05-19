@@ -1,29 +1,10 @@
 #!/bin/sh
-# Packs everything then moves them to release folder
+# Push to git
 
-touch builds/r8
+read -p 'Commit title:' >> $commit
+echo $commit
+#git init
 
-cd /res/acip
-./repackimg.sh
-rm-f ramdisk-new.cpio.gz
+#git add *
 
-cd /res/aex
-
-cd /res/asocp
-
-cd /res/crdroid
-
-cd /res/dnd
-
-cd /res/lineage
-
-cd /res/miui6
-
-cd /res/miui7
-
-cd /res/rrn3
-
-cd /res/xsop
-
-exit 0;
-
+#git commit -m 
