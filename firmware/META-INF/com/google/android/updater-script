@@ -37,6 +37,6 @@ delete("/cache/miui_update");
 
 
 sleep(1);
-ui_print("==> Firmware update successful!")
+ui_print("==> Firmware update successful!");
 
 set_progress(1.000000);
