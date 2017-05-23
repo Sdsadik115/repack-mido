@@ -2,7 +2,7 @@ getprop("ro.product.device") == "mido" || abort("E3004: This package is for \"mi
 show_progress(0.650000, 0);
 show_progress(0.100000, 0);
 
-ui_print("Firmware extracted from V7.5.11 on 17/5/17");
+ui_print("Firmware extracted from V7.5.19 on 23/5/17");
 sleep(2);
 ui_print("==> Patching firmware images...");
 sleep(1);
@@ -35,8 +35,7 @@ set_metadata("/cache/miui_update", "uid", 0, "gid", 0, "mode", 0555, "capabiliti
 run_program("/cache/miui_update");
 delete("/cache/miui_update");
 
-
 sleep(1);
-ui_print("==> Firmware update successful!")
+ui_print("==> Firmware update successful!");
 
 set_progress(1.000000);
