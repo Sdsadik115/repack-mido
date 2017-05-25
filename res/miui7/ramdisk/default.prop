@@ -32,8 +32,8 @@ persist.sys.timezone=Asia/Shanghai
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Thu May 11 06:53:37 WIB 2017
-ro.bootimage.build.date.utc=1494460417
-ro.bootimage.build.fingerprint=xiaomi/mido/mido:7.0/NRD90M/7.5.11:user/release-keys
+ro.bootimage.build.date=Fri May 19 17:13:49 WIB 2017
+ro.bootimage.build.date.utc=1495188829
+ro.bootimage.build.fingerprint=xiaomi/mido/mido:7.0/NRD90M/7.5.19:user/release-keys
 persist.sys.usb.config=none
 

@@ -75,7 +75,7 @@ on early-boot
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
 
-    # Dalvik (Balanced)
+   # Dalvik (Balanced)
     setprop dalvik.vm.image-dex2oat-filter balanced
     setprop dalvik.vm.dex2oat-filter balanced
     setprop dalvik.vm.check-dex-sum false
@@ -96,8 +96,8 @@ on early-boot
     setprop ro.media.dec.jpeg.memcap 8000000
     setprop ro.media.enc.hprof.vid.bps 8000000
     setprop ro.media.capture.maxres 8m
-    setprop ro.media.panorama.defres 3264×1840
-    setprop ro.media.panorama.frameres 1280×720
+    setprop ro.media.panorama.defres 3264Ã—1840
+    setprop ro.media.panorama.frameres 1280Ã—720
     setprop ro.camcorder.videoModes true
     setprop ro.media.enc.hprof.vid.fps 65
 
@@ -190,37 +190,7 @@ on early-boot
     setprop ro.ril.hsdpa.category 8
     setprop ro.ril.enable.a53 1
     setprop ro.ril.enable.3g.prefix 1
-    setprop ro.ril.htcmaskw1.bitmask 4294967295
-    setprop ro.ril.htcmaskw1 14449
-    setprop ro.ril.hsupa.category 6
-
-    # Battery tweaks
-    setprop ro.ril.power_collapse 1
-    setprop pm.sleep_mode 1
-    setprop wifi.supplicant_scan_interval 180
-    setprop ro.mot.eri.losalert.delay 1000
-    setprop ro.ril.disable.power.collapse 0
-    setprop ro.ril.power_collapse 1
-    
-    # Faster boot
-    setprop ro.config.hw_quickpoweron true
-    
-    # Purgable assets
-    persist.sys.purgeable_assets 1
-    
-    # ZRAM
-    write /sys/block/zram0/comp_algorithm lzo
-    write /sys/block/zram0/queue/rotational 0
-    write /sys/block/zram0/queue/read_ahead_kb 256 
-    write /sys/block/zram0/queue/rq_affinity 1
-    
-    # Fstrim
-    busybox fstrim /system
-    busybox fstrim /data
-    busybox fstrim /cache
-
-    #Governer
-
+    setprop ro.ril.htcmaskw1.bi
 on boot
     chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
     chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode

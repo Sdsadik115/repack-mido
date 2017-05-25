@@ -172,37 +172,7 @@ on early-boot
     setprop ro.ril.hsdpa.category 8
     setprop ro.ril.enable.a53 1
     setprop ro.ril.enable.3g.prefix 1
-    setprop ro.ril.htcmaskw1.bitmask 4294967295
-    setprop ro.ril.htcmaskw1 14449
-    setprop ro.ril.hsupa.category 6
-
-    # Battery tweaks
-    setprop ro.ril.power_collapse 1
-    setprop pm.sleep_mode 1
-    setprop wifi.supplicant_scan_interval 180
-    setprop ro.mot.eri.losalert.delay 1000
-    setprop ro.ril.disable.power.collapse 0
-    setprop ro.ril.power_collapse 1
-    
-    # Faster boot
-    setprop ro.config.hw_quickpoweron true
-    
-    # Purgable assets
-    persist.sys.purgeable_assets 1
-    
-    # ZRAM
-    write /sys/block/zram0/comp_algorithm lzo
-    write /sys/block/zram0/queue/rotational 0
-    write /sys/block/zram0/queue/read_ahead_kb 256 
-    write /sys/block/zram0/queue/rq_affinity 1
-    
-    # Fstrim
-    busybox fstrim /system
-    busybox fstrim /data
-    busybox fstrim /cache
-
-    #Governer
-
+    setprop ro.ril.htcmaskw1.bi
 on boot
     chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
     chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode
